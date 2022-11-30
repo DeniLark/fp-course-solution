@@ -214,8 +214,8 @@ After this, we recommend the following progression of modules:
 * ! `Course.FileIO`
 * ! `Course.State`
 * ! `Course.StateT`
-* `Course.Extend`
-* `Course.Comonad`
+* ! `Course.Extend`
+* ! `Course.Comonad`
 * `Course.Contravariant`
 * `Course.Compose`
 * `Course.Traversable`
