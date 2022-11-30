@@ -285,7 +285,16 @@ log1 l = Logger (l :. Nil)
 -- >>> distinctG $ listh [1,2,3,2,6,106]
 -- Logger ["even number: 2","even number: 2","even number: 6","aborting > 100: 106"] Empty
 distinctG :: (Integral a, Show a) => List a -> Logger Chars (Optional (List a))
-distinctG ls = runOptionalT $ evalT (filtering (\a -> _) ls) S.empty
+distinctG ls = runOptionalT $ evalT
+  (filtering
+    (\a -> StateT $ \set -> OptionalT $ if a > 100
+      then log1 ("aborting > 100: " ++ show' a) Empty
+      else (if even a then log1 ("even number: " ++ show' a) else pure)
+        $ Full (S.notMember a set, S.insert a set)
+    )
+    ls
+  )
+  S.empty
 
 -------------------------
 
