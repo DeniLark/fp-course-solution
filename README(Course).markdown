@@ -217,7 +217,7 @@ After this, we recommend the following progression of modules:
 * ! `Course.Extend`
 * ! `Course.Comonad`
 * ! `Course.Contravariant`
-* `Course.Compose`
+* ! `Course.Compose`
 * `Course.Traversable`
 * `Course.ListZipper`
 * `Course.Parser` *(see also `Course.Person` for the parsing rules)*
